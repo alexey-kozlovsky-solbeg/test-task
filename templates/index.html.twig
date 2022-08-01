@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ShipMonk test case{% endblock %}</title>
+</head>
+<body>
+{% block body %}
+    <div>
+        <form action="#" method="post" id="main" name="main">
+            <p>
+                <label for="direction">Sorting direction:</label>
+                {% for direction, checked in directions %}
+                    <br> <input type="radio" name="direction" id="direction" value="{{ direction }}" {{ checked == true ? 'checked' }}>{{ direction }}
+                {% endfor %}
+            </p>
+            <p>
+                <label for="newValue">New item:</label>
+                <input type="text" name="newValue" id="newValue" size="16" placeholder="Input string or int value" >
+            </p>
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+
+            <input type="hidden" name="map" value="{{ map is defined ? map }}">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('main') }}">
+        </form>
+    </div>
+    <hr>
+    <div>
+        {% if list is defined and list is not null %}
+            <div>
+                <table border="1" cellpadding="2" >
+                    <tr>
+                        {% for item in list %}
+                            <td><span>{{ item }}</span></td>
+                        {% endfor %}
+                    </tr>
+                </table>
+            </div>
+
+        {% endif %}
+    </div>
+{% endblock %}
+</body>
+</html>
