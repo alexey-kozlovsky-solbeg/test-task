@@ -1,9 +1,10 @@
-#ShipMonk Test Task 
+# ShipMonk Test Task 
 
 ## Task
 Implement from scratch a fully working project with SortedLinkedList (linkedlist that keeps values sorted). Implement only string and int values for example purposes.
 
-##Solution
+## Solution
+
 ### Requirements
 - PHP 8 or higher
 - Composer
